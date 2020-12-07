@@ -34,6 +34,7 @@ function popBalloon(position) {
 		}
 	}
 
+
 	if (activeBalloons === 0) {
 	renderAgain();
 }
@@ -60,6 +61,10 @@ else if(activeBalloons >= 8) {
 
 else if(activeBalloons >= 28) {
 	grid.style.height = "600px";
+}
+
+else if(activeBalloons >= 32) {
+	grid.style.height = "800px";
 }
 
 }
@@ -96,11 +101,11 @@ else if(activeBalloons >= 20) {
 }
 
 else if(activeBalloons >= 16) {
-	grid.style.height = "400px";
+	grid.style.height = "300px";
 }
 
 else if(activeBalloons >= 12) {
-	grid.style.height = "350px";
+	grid.style.height = "250px";
 }
 
 else if(activeBalloons >= 8) {
@@ -113,22 +118,45 @@ else if(activeBalloons >= 28) {
 
 }
 
-window.onload = render();
+const gridSizeSelect = () => {
+
+	let size = prompt("Select a SIZE: 1. 4x3 / 2. 4x4 / 3. 4x5");
+
+	if (size == '1') {
+		balloonColors = [
+			"red","green", "blue",
+		    "grey","purple", "purple",
+		    ,'red','green',
+		    "yellow",'blue',"yellow",
+		    'grey'
+		];
+		render();
+	}
+
+	if (size == '2') {
+		balloonColors = [
+			"red","green", "blue",
+		    "grey","purple", "purple",
+		    ,'red','green',
+		    "yellow",'blue',"yellow",
+		    'grey', 'pink', 'brown', 'brown',
+				'pink'
+		];
+		render();
+	}
+
+	if (size == '3') {
+		render();
+	}
+
+}
+
+window.onload = gridSizeSelect();
 
 function renderAgain() {
-
-	balloonColors = [
-	"red","green", "blue","pink",
-    "grey","purple","orange","purple",
-    "pink",'red',"black",'green',
-    "brown","yellow",'blue',"yellow",
-    'grey',"black","orange","brown",
-	];
-
-	playResetGridMusic();
-	render();
+	gridSizeSelect();
 	increaseScore();
-	activeBalloons = 0;
+	playResetGridMusic();
 }
 
 let popSound = new Audio('sounds/balloonPop.wav');
@@ -137,54 +165,14 @@ const makePopSound = () => {
 	popSound.play();
 }
 
-let changeSizeSound = new Audio('sounds/changeSize.wav');
-
-const makeChangeSizeSound = () => {
-	changeSizeSound.play();
-}
-
 let resetGridMusic = new Audio('sounds/gridReset.wav');
 
 const playResetGridMusic = () => {
 	resetGridMusic.play();
 }
 
-function addMoreBalloons() {
-	balloonColors.push(getRandomColor());
-	balloonColors.push(getRandomColor());
-	balloonColors.push(getRandomColor());
-	balloonColors.push(getRandomColor());
-	activeBalloons = 0;
-	render();
-}
-
-function lessBalloons() {
-	balloonColors.pop();
-	balloonColors.pop();
-	balloonColors.pop();
-	balloonColors.pop();
-	activeBalloons = 0;
-	render();
-}
-
-function getRandomColor() {
-
-  let randomColors = ['red', 'green', 'blue', 'pink', 'gray', 'purple', 'orange', 'black', 'yellow', 'brown'];
-  let color = "";
-
-  for (var i = 0; i < 4; i++) {
-    color = Math.floor(Math.random() * randomColors.length);
-  }
-  return randomColors[color];
-}
-
 function increaseScore() {
 	score++;
-	document.querySelector('#score').innerHTML = score;
-}
-
-function scoreToZero() {
-	score = 0;
 	document.querySelector('#score').innerHTML = score;
 }
 
