@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>POP THE BALLOONS! JS</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/balloonIcon.png">
+    <img src="images/balloonIcon.png" width="30" height="30" id="balloonIcon">
+    <img src="images/scorePic.png" width="150" height="50" id="scoreImg">
+</head>
+<body>
+
+        <div id="plusButton" onclick="addMoreBalloons(); makeChangeSizeSound();">
+            <i class="fas fa-plus-circle"></i>
+        </div>
+        <div id="minusButton" onclick="lessBalloons(); makeChangeSizeSound();">
+            <i class="fas fa-minus-circle"></i>
+        </div>
+        <div id="refreshButton" onclick="refresh()">
+            <i class="fas fa-sync-alt"></i>
+        </div>
+        <div id="score">
+            <span>0</span>
+        </div>
+
+        <div id="musicBox">
+            <span id="musicInstruction">Hit play for MUSIC: </span>
+            <audio id="musicPlayer" autoplay controls loop>
+            <source src="sounds/gameMusic.mp3">
+            </audio>
+        </div>
+
+        <p id="header"> Pop The Balloons! </p>
+        <br>
+        <span id="count">0</span>
+        <div id="balloon-grid">
+        </div>
+        <script src="app.js"></script>
+
+</body>
+</html>
