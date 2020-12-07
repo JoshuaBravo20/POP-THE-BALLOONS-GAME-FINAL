@@ -14,36 +14,6 @@ body {
 	background-color: #ACB1F2;
 }
 
-
-#plusButton {
-	font-size: 30px;
-	color: blue;
-	margin-left: 970px;
-	margin-top: 245px;
-	cursor: pointer;
-	position: absolute;
-	background: white;
-	border-radius: 100%;
-}
-
-#plusButton:hover {
-	background: #C9CCF0;
-}
-
-#minusButton {
-	font-size: 30px;
-	color: blue;
-	margin-left: 930px;
-	margin-top: 245px;
-	cursor: pointer;
-	position: absolute;
-	background: white;
-	border-radius: 100%;
-}
-
-#minusButton:hover {
-	background: #C9CCF0;
-}
 #refreshButton {
 	font-size: 35px;
 	color: blue;
